@@ -5,51 +5,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.jacco.trivia.GameActivity">
+    tools:context="com.example.jacco.trivia.GamesActivity">
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         android:padding="15dp"
-        android:text="That's TRIVIAL!"
-        android:textSize="25sp" />
+        android:text="TextView"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/difficulty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingBottom="15dp"
-        android:paddingTop="15dp"
-        android:text="How hard do you want your questions to be?"
-        android:textSize="17sp" />
+        android:paddingLeft="12dp"
+        android:text="difficulty" />
 
-    <Button
-        android:id="@+id/easy"
+    <CheckBox
+        android:id="@+id/answer1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="difficultyClicked"
-        android:text="Easy" />
+        android:text="Answer1" />
 
-    <Button
-        android:id="@+id/medium"
+    <CheckBox
+        android:id="@+id/answer2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="difficultyClicked"
-        android:text="Medium" />
+        android:text="Answer2" />
 
-    <Button
-        android:id="@+id/hard"
+    <CheckBox
+        android:id="@+id/answer3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="difficultyClicked"
-        android:text="hard" />
+        android:text="Answer3" />
 
-    <Button
-        android:id="@+id/random"
+    <CheckBox
+        android:id="@+id/answer4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Random" />
+        android:text="Answer4" />
 </LinearLayout>
