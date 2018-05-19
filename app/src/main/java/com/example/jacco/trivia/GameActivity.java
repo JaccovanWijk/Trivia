@@ -26,11 +26,8 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        database.setLogLevel(Logger.Level.DEBUG);
-
-        DatabaseReference myRef = database.getReference("message");
-        myRef.setValue("Hello, World!");
+//        DatabaseReference myRef = database.getReference("message");
+//        myRef.setValue("Hello, World!");
     }
 
     public void difficultyClicked(View view) {
@@ -44,5 +41,11 @@ public class GameActivity extends AppCompatActivity {
         Intent intent = new Intent(GameActivity.this, GamesActivity.class);
         intent.putExtra("difficulty", difficulty);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        difficulty = "";
     }
 }

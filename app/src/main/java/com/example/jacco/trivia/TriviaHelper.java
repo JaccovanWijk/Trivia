@@ -1,7 +1,9 @@
 package com.example.jacco.trivia;
 
 import android.content.Context;
+import android.util.Log;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -39,11 +41,16 @@ public class TriviaHelper implements Response.Listener<JSONObject>, Response.Err
     }
 
     public void getNextQuestion(CallBack activity, String difficulty) {
-        //TODO Zorg dat hij difficulty meeneemt
         RequestQueue queue = Volley.newRequestQueue(context);
         delegate = activity;
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Url + difficulty, null, this, this);
+        // give difficulty
+        if (!difficulty.equals("Random")) {
+            Url += "&difficulty=" + difficulty.toLowerCase();
+        }
+        Log.d("Url", Url);
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Url, null, this, this);
         queue.add(jsonObjectRequest);
     }
 
@@ -57,30 +64,33 @@ public class TriviaHelper implements Response.Listener<JSONObject>, Response.Err
         Question question = new Question();
 
         try {
-            JSONArray array = response.getJSONArray("result");
+            JSONArray array = response.getJSONArray("results");
 
-            // set info question
+            // fill question
             JSONObject jsonObject = array.getJSONObject(0);
             question.setQuestion(convertString(jsonObject.getString("question")));
             question.setRightAnswer(convertString(jsonObject.getString("correct_answer")));
             question.setType(convertString(jsonObject.getString("type")));
             question.setDifficulty(convertString(jsonObject.getString("difficulty")));
-
+            Log.d("hoi",convertString(jsonObject.getString("type")));
             // find answers
             ArrayList<String> answers = new ArrayList<>();
             JSONArray items = jsonObject.getJSONArray("incorrect_answers");
             answers.add(convertString(jsonObject.getString("correct_answer")));
             for(int i = 0; i < items.length(); i++) {
-                answers.add(items.getString(i));
+                answers.add(convertString(items.getString(i)));
             }
 
             // set shuffled answers
-            Collections.shuffle(answers);
+            if (question.getType().toString().equals("multiple")) {
+                Collections.shuffle(answers);
+            }
             question.setAnswers(answers);
 
         } catch(JSONException e) {
             delegate.gotError(e.getMessage());
         }
+        delegate.gotQuestion(question);
     }
 
     private String convertString(String text) {

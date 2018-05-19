@@ -5,14 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.jacco.trivia.GameActivity">
+    tools:context="com.example.jacco.trivia.GameActivity"
+    android:background="@drawable/kurzgesagt">
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:background="@android:color/white"
         android:gravity="center"
-        android:padding="15dp"
         android:text="That's TRIVIAL!"
         android:textSize="25sp" />
 
@@ -20,10 +23,10 @@
         android:id="@+id/difficulty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@android:color/white"
         android:gravity="center"
-        android:paddingBottom="15dp"
-        android:paddingTop="15dp"
-        android:text="How hard do you want your questions to be?"
+        android:text="In this trivia-app you'll be presented with 15 questions. The harder the question, the higher your score! How hard do you want your questions to be?"
         android:textSize="17sp" />
 
     <Button
@@ -45,11 +48,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="difficultyClicked"
-        android:text="hard" />
+        android:text="Hard" />
 
     <Button
         android:id="@+id/random"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="difficultyClicked"
         android:text="Random" />
 </LinearLayout>

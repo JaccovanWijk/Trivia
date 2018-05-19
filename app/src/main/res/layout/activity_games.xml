@@ -5,45 +5,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.jacco.trivia.GamesActivity">
+    tools:context="com.example.jacco.trivia.GamesActivity"
+    android:background="@drawable/kurzgesagt">>
 
     <TextView
         android:id="@+id/question"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:background="@android:color/white"
         android:gravity="center_horizontal"
-        android:padding="15dp"
         android:text="TextView"
         android:textSize="15sp" />
 
     <TextView
         android:id="@+id/difficulty"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="12dp"
+        android:layout_margin="15dp"
+        android:background="@android:color/white"
         android:text="difficulty" />
 
-    <CheckBox
+    <Button
         android:id="@+id/answer1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Answer1" />
+        android:onClick="answerClicked"
+        android:text="Button" />
 
-    <CheckBox
+    <Button
         android:id="@+id/answer2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Answer2" />
+        android:onClick="answerClicked"
+        android:text="Button" />
 
-    <CheckBox
+    <Button
         android:id="@+id/answer3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Answer3" />
+        android:onClick="answerClicked"
+        android:text="Button" />
 
-    <CheckBox
+    <Button
         android:id="@+id/answer4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Answer4" />
+        android:onClick="answerClicked"
+        android:text="Button" />
+
 </LinearLayout>
