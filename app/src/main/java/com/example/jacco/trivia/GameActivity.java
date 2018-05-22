@@ -25,9 +25,6 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-
-//        DatabaseReference myRef = database.getReference("message");
-//        myRef.setValue("Hello, World!");
     }
 
     public void difficultyClicked(View view) {
